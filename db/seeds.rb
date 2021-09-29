@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts "Eliminando reparto"
+Cast.destroy_all
+puts "Eliminando personajes"
+Character.destroy_all
+puts "Eliminando películas"
+Movie.destroy_all
+puts "iniciando seed"
+
+# Generador de personajes
+
+
+puts "Finalizando seed"

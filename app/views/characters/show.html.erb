@@ -1,0 +1,27 @@
+
+<div class="container mt-3">
+  <div class="card mb-3">
+    <td><%= cl_image_tag @character.photo.key, height: 150, width: 200, crop: :scale %></td>
+    <div class="card-body">
+      <h5 class="card-title"><%= @character.name %></h5>
+      <p class="card-text"><%= @character.history %></p>
+      <p class="card-text"><small class="text-muted">Edad: <%= @character.age %> años | peso: <%= @character.weight %>kg</small></p>
+    </div>
+  </div>
+
+  <h2>películas</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Foto</th>
+        <th scope="col">Nombre</th>
+      </tr>
+      <% @character.movies.each do |movie| %>
+        <tbody>
+          <th scope="row"><%= cl_image_tag movie.photo.key, height: 150, width: 200, crop: :fit %></th>
+          <td><%= movie.title %></td>
+        </tbody>
+      <% end %>
+    </thead> 
+  </table>  
+</div> 

@@ -1,0 +1,24 @@
+<div class="container">
+    <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">poster</th>
+        <th scope="col">Título</th>
+        <th scope="col">Fecha de creación</th>
+      </tr>
+      <% index = 1 %>
+      <% @genre.movie.each do |movie| %>
+      <tbody>
+        <tr>
+          <th scope="row"><%= index %></th>
+          <td><%= cl_image_tag movie.photo.key, height: 150, width: 200, crop: :fit %></td>
+          <td><%= link_to movie_path(movie) do %><%= movie.title %><% end %></td>
+          <td><%= movie.created_at %></td>
+        </tr>
+      </tbody>
+      <% index += 1 %>
+      <% end %>
+    </thead> 
+  </table>   
+</div>

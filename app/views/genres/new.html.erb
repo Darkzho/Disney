@@ -1,0 +1,11 @@
+<div class="container">
+  <%= simple_form_for (@genre) do |f| %>
+              <%= f.input :name,
+                            label: "Agrega el género",
+                            required: true,
+                            autofocus: true,
+                            input_html: { autocomplete: "name"} %>
+              <%= f.input :photo, as: :file %>
+              <%= f.submit "aceptar" %>
+  <% end %>
+</div>

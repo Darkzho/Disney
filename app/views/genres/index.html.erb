@@ -1,0 +1,10 @@
+<div class="container my-3 d-flex gap-3">
+  <% @genres.each do |genre| %>
+    <div class="card my-3" style="width: 18rem;">
+      <span><%= cl_image_tag genre.photo.key, height: 150, width: 700, crop: :fit %></span>
+      <div class="card-body">
+        <p class="card-text text-center"><%= link_to genre_path(genre) do %> <%= genre.name %> <% end %> </p>
+      </div>
+  </div>
+  <% end %>
+</div>

@@ -1,0 +1,24 @@
+<%= simple_form_for (@character) do |f| %>
+            <%= f.input :name,
+                          label: "Nombre del personaje",
+                          required: true,
+                          autofocus: true,
+                          input_html: { autocomplete: "name"} %>
+            <%= f.input :age,
+                          label: "Edad del personaje",
+                          required: true,
+                          autofocus: true,
+                          input_html: { autocomplete: "age"} %>
+            <%= f.input :weight,
+                          label: "Peso del personaje",
+                          required: true,
+                          autofocus: true,
+                          input_html: { autocomplete: "peso"} %>
+            <%= f.input :history,
+                          label: "historia del personaje",
+                          required: true,
+                          autofocus: true,
+                          input_html: { autocomplete: "history"} %>
+              <%= f.input :photo, as: :file %>                            
+            <%= f.submit "aceptar" %>
+<% end %>
