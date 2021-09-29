@@ -1,0 +1,15 @@
+<%= simple_form_for (@movie) do |f| %>
+            <%= f.input :title,
+                          label: "Título de la película",
+                          required: true,
+                          autofocus: true,
+                          input_html: { autocomplete: "title"} %>
+            <%= f.input :rating,
+                          label: "Valoración de la película",
+                          required: true,
+                          autofocus: true,
+                          input_html: { autocomplete: "rating"} %> 
+            <%= f.association :genre %>
+            <%= f.input :photo, as: :file %>
+            <%= f.submit "aceptar" %>
+<% end %>

@@ -1,0 +1,30 @@
+<div class="container">
+  <h2>Lista de películas <span><%= link_to "Agrega una película", new_movie_path %></span></h2>
+  <!-- búscador de películas -->
+  <%= render 'characters/searcher' %>
+  
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">poster</th>
+        <th scope="col">Título</th>
+        <th scope="col">Fecha de creación</th>
+        <th scope="col">Acciones</th>
+      </tr>
+      <% index = 1 %>
+      <% @movies.each do |movie| %>
+      <tbody>
+        <tr>
+          <th scope="row"><%= index %></th>
+          <td><%= cl_image_tag movie.photo.key, height: 150, width: 200, crop: :fit %></td>
+          <td><%= link_to movie_path(movie) do %><%= movie.title %><% end %></td>
+          <td><%= movie.created_at %></td>
+          <td><%= link_to "Editar", edit_movie_path(movie) %> <%= link_to "Borrar", movie_path(movie), method: :delete, data: { confirm: "Estás seguro?" }  %></td>
+        </tr>
+      </tbody>
+      <% index += 1 %>
+      <% end %>
+    </thead> 
+  </table>   
+</div>

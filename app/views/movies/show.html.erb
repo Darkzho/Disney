@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="card mb-3">
+    <span><%= cl_image_tag @movie.photo.key, height: 150, width: 170, crop: :scale %></span>
+      <div class="card-body">
+      <h5 class="card-title"><%= @movie.title %></h5>
+      <p class="card-text"><small class="text-muted">Rating: <%= @movie.rating %></small></p>
+    </div>
+  </div>
+
+  <h2>Personajes asociados</h2>
+  <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Foto</th>
+          <th scope="col">Nombre</th>
+        </tr>
+          <tbody>
+        <% @movie.casts.each do |cast| %>
+            <th><%= cl_image_tag Character.find(cast.character_id).photo.key, height: 100, width: 150, crop: :fit %></th>
+            <td><%= Character.find(cast.character_id).name %></td>
+            </tbody>
+        <% end %>
+      </thead> 
+    </table>  
+  </div>
+</div> 

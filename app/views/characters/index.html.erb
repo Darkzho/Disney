@@ -1,0 +1,26 @@
+<div class="container">
+  <h2 class="my-4">Lista de personajes <span><%= link_to "Crea un personaje", new_character_path %></span></h2> 
+  <!-- buscandor -->
+  <%= render 'searcher' %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Foto</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Acciones</th>
+      </tr>
+      <% index = 1 %>
+      <% @character.each do |character|%>
+        <tbody>
+          <th scope="row"><%= index %></th>
+            <td><%= cl_image_tag character.photo.key, height: 150, width: 200, crop: :fit %></td>
+            <td><%= link_to character_path(character) do %><%= character.name %><% end %></td>
+            <td><%= link_to "edit", edit_character_path(character) %><br><%= link_to "borrar", character_path(character), method: :delete, data: { confirm: "Estás seguro?" } %></td>
+          </th>
+          </tbody>
+        <% index += 1 %>
+      <% end %>
+    </thead> 
+  </table>   
+</div>

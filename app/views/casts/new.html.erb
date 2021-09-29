@@ -1,0 +1,4 @@
+<%= simple_form_for [ @movie, @cast ] do |f| %>
+    <%= f.association :character %>
+    <%= f.submit "Submit", class:"btn btn-primary" %>
+  <% end %>
